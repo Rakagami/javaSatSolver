@@ -13,13 +13,22 @@ public class DS {
 		Expression exp;
 			System.out.println("WELCOME TO THE 'TOO LAZY TO DO PGdP BUT STILL WANT TO DO JAVA' Mini-Project");
 		while(true) {
-			System.out.println("Enter any Formula with correct Syntax!");
+			System.out.println("Enter any Formula with correct Syntax! (Enter 'exit' to exit program)");
 			System.out.println("Disjunction: 'v', '∨' ;Conjunction: '^', '∧' ;Negation: '¬'; All Variables have to be 1 Char long");
 			String stmt = DS.askString("> ");
-			System.out.println("All Interpretations:");
-			exp = parseStmt(stmt);
-			checkBelegung(exp);
-			System.out.println();
+			if(stmt.equals("exit")) {
+				System.out.println("Exit Program...");
+				break;
+			}
+			try {
+				exp = parseStmt(stmt);
+				System.out.println("All Interpretations:");
+				checkBelegung(exp);
+				System.out.println();
+			}catch(Exception e) {
+				System.out.println("Please enter a valid Input");
+				System.out.println();
+			}
 		}
 	}
 	
